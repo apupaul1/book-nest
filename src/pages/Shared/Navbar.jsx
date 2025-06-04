@@ -1,6 +1,7 @@
 import React, { use } from 'react';
 import { NavLink } from 'react-router';
 import { AuthContext } from '../../contexts/AuthContext/AuthContext';
+import Swal from 'sweetalert2';
 
 
 const Navbar = () => {
@@ -10,6 +11,14 @@ const Navbar = () => {
     const handleSignOut = () => {
         userSignOut()
             .then(() => {
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Sign out sucessfully",
+                    showConfirmButton: false,
+                    timer: 1500,
+                    toast:true
+                });
                 console.log('Signed out user');
             })
             .catch(error => {
@@ -63,14 +72,14 @@ const Navbar = () => {
                         <button
                             onClick={handleSignOut}
                             className='btn'>Sign Out</button> :
-                        <>
+                        <div className='flex gap-4'>
                             <NavLink
                                 to={'/register'}
                                 className="btn">Register</NavLink>
                             <NavLink
                                 to={'/signin'}
                                 className="btn">Login</NavLink>
-                        </>
+                        </div>
                 }
             </div>
         </div>
