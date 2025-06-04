@@ -1,27 +1,40 @@
-import React from 'react';
+import React, { use } from 'react';
 import { NavLink } from 'react-router';
+import { AuthContext } from '../../contexts/AuthContext/AuthContext';
 
 
 const Navbar = () => {
 
+    const { user, userSignOut } = use(AuthContext)
+
+    const handleSignOut = () => {
+        userSignOut()
+            .then(() => {
+                console.log('Signed out user');
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
+
     const links = <div className='flex gap-12'>
-        <NavLink 
-        className={({ isActive }) => (
-            isActive ? 'text-indigo-600 underline underline-offset-4 decoration-3' : '')} 
-        to={'/'}>
-            <a>Home</a>
-            </NavLink>
+        <NavLink
+            className={({ isActive }) => (
+                isActive ? 'text-indigo-600 underline underline-offset-4 decoration-3' : '')}
+            to={'/'}>
+            Home
+        </NavLink>
 
-        <NavLink 
-        className={({ isActive }) => (
-            isActive ? 'text-indigo-600 underline underline-offset-4 decoration-3' : '')} 
-        to={'/bookshelf'}>
-            <a>BookShelf</a>
-            </NavLink>
+        <NavLink
+            className={({ isActive }) => (
+                isActive ? 'text-indigo-600 underline underline-offset-4 decoration-3' : '')}
+            to={'/bookshelf'}>
+            BookShelf
+        </NavLink>
 
-        <NavLink><a>Add Book</a></NavLink>
+        <NavLink>Add Book</NavLink>
 
-        <NavLink><a>My Books</a></NavLink>
+        <NavLink>My Books</NavLink>
     </div>
 
     return (
@@ -45,12 +58,20 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <NavLink 
-                to={'/register'}
-                className="btn">Register</NavLink>
-                <NavLink 
-                to={'/signin'}
-                className="btn">Login</NavLink>
+                {
+                    user ?
+                        <button
+                            onClick={handleSignOut}
+                            className='btn'>Sign Out</button> :
+                        <>
+                            <NavLink
+                                to={'/register'}
+                                className="btn">Register</NavLink>
+                            <NavLink
+                                to={'/signin'}
+                                className="btn">Login</NavLink>
+                        </>
+                }
             </div>
         </div>
     );
