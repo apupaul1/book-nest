@@ -5,7 +5,7 @@ import Navbar from '../pages/Shared/Navbar';
 
 const RootLayout = () => {
     return (
-        <div>
+        <div className=' bg-[#E6E6FA]'>
             <Navbar></Navbar>
             <Outlet></Outlet>
             <Footer></Footer>
