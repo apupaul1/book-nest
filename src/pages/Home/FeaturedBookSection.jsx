@@ -1,4 +1,3 @@
-import { div } from "motion/react-client";
 
 const FeaturedBookSection = () => {
 
@@ -19,7 +18,7 @@ const FeaturedBookSection = () => {
     </>
 
     return (
-        <div>
+        <div className="w-10/12 mx-auto">
             <h2 className="text-3xl text-center mt-10 font-bold">Newly Added Books</h2>
             <div className="carousel w-full py-10">
                 {/* Carousel Item 1 */}

@@ -1,9 +1,11 @@
 import TopPicks from './TopPicks';
 import FeaturedBookSection from './FeaturedBookSection';
+import Banner from './Banner';
 
 const Home = () => {
     return (
-        <div className='min-h-screen w-10/12 mx-auto my-8'>
+        <div className='min-h-screen'>
+            <Banner></Banner>
             <TopPicks></TopPicks>
             <FeaturedBookSection></FeaturedBookSection>
         </div>

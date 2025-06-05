@@ -17,7 +17,7 @@ const Navbar = () => {
                     title: "Sign out sucessfully",
                     showConfirmButton: false,
                     timer: 1500,
-                    toast:true
+                    toast: true
                 });
                 console.log('Signed out user');
             })
@@ -47,7 +47,7 @@ const Navbar = () => {
     </div>
 
     return (
-        <div className="navbar bg-base-300 shadow-sm ">
+        <div className="navbar bg-gray-400 shadow-sm ">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -59,7 +59,13 @@ const Navbar = () => {
                         {links}
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-xl">BookNest</a>
+                <div className='flex items-center'>
+                    <img
+                        className='w-[50px]'
+                        src="/logo.png"
+                        alt="" />
+                    <h2 className=" text-xl">BookNest</h2>
+                </div>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
