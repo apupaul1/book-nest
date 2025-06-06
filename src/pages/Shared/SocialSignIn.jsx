@@ -1,10 +1,12 @@
 import React, { use } from 'react';
 import { AuthContext } from '../../contexts/AuthContext/AuthContext';
 import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router';
 
-const SocialSignIn = () => {
+const SocialSignIn = ({from}) => {
 
     const { googleSignIn } = use(AuthContext)
+    const navigate = useNavigate()
 
     const handleGoogleSign = () => {
         googleSignIn()
@@ -15,6 +17,8 @@ const SocialSignIn = () => {
                     draggable: true
                 });
                 console.log(result);
+                navigate(from || '/')
+
             })
             .catch(error => {
                 console.log(error);

@@ -8,6 +8,8 @@ const Navbar = () => {
 
     const { user, userSignOut } = use(AuthContext)
 
+    console.log(user);
+
     const handleSignOut = () => {
         userSignOut()
             .then(() => {
@@ -41,9 +43,13 @@ const Navbar = () => {
             BookShelf
         </NavLink>
 
-        <NavLink>Add Book</NavLink>
+        <NavLink
+        to={'/addbooks'}
+        >Add Book</NavLink>
 
-        <NavLink>My Books</NavLink>
+        <NavLink
+        to={'/mybooks'}
+        >My Books</NavLink>
     </div>
 
     return (

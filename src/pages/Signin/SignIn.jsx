@@ -2,11 +2,15 @@ import React, { use } from 'react';
 import { AuthContext } from '../../contexts/AuthContext/AuthContext';
 import SocialSignIn from '../Shared/SocialSignIn';
 import Swal from 'sweetalert2';
-import { NavLink } from 'react-router';
+import { NavLink, useNavigate } from 'react-router';
+import { useLocation } from 'react-router';
 
 const SignIn = () => {
 
     const { userLogin } = use(AuthContext)
+    const location = useLocation();
+    const navigate = useNavigate();
+    const from = location.state || '/';
 
     const handleSignIn = e => {
         e.preventDefault();
@@ -22,6 +26,7 @@ const SignIn = () => {
                     draggable: true,
                 });
                 console.log(result.user);
+                navigate(from)
             })
             .catch(error => {
                 console.log(error);
@@ -59,7 +64,7 @@ const SignIn = () => {
                                 <NavLink className='underline ml-2' to={'/register'}>Register</NavLink>
                             </p>
                         </form>
-                        <SocialSignIn></SocialSignIn>
+                        <SocialSignIn from={from}></SocialSignIn>
                     </div>
                 </div>
             </div>
