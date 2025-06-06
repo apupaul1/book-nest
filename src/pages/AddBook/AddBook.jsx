@@ -1,18 +1,38 @@
 import React, { use } from 'react';
 import { AuthContext } from '../../contexts/AuthContext/AuthContext';
 import { motion } from 'motion/react';
+import axios from 'axios';
+import Swal from 'sweetalert2';
 
 const AddBook = () => {
     const { user } = use(AuthContext);
     const email = user.email;
     const name = user.displayName;
 
-    const handleAddBooks = e =>{
+    const handleAddBooks = e => {
         e.preventDefault();
         const form = e.target;
         const formData = new FormData(form);
         const data = Object.fromEntries(formData.entries());
         console.log(data);
+
+        axios.post('http://localhost:3000/books', data)
+            .then(res => {
+                if (res.data.insertedId) {
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "Sign out sucessfully",
+                        showConfirmButton: false,
+                        timer: 1500,
+                        toast: true
+                    });
+                }
+                form.reset()
+            })
+            .catch(error => {
+                console.log(error);
+            })
     }
 
 
@@ -38,9 +58,9 @@ const AddBook = () => {
             >
                 <h2 className="text-4xl font-semibold text-amber-500 mb-4 text-center">Add a New Book</h2>
                 <p className='text-center text-sm text-gray-600 mb-8'>Share your book collection with the community. Add a new book, track its reading status, and contribute to the collection.</p>
-                <form 
-                onSubmit={handleAddBooks}
-                className="space-y-6">
+                <form
+                    onSubmit={handleAddBooks}
+                    className="space-y-6">
 
                     {/* Book Title */}
                     <div>
@@ -164,9 +184,10 @@ const AddBook = () => {
                     <div>
                         <label className="block text-sm font-medium mb-2 text-gray-800">Upvotes</label>
                         <input
+                        name="upvotes"
                             type="number"
                             className="w-full p-3 bg-gray-100 rounded-lg text-gray-600 border-2 border-gray-300"
-                            value={0} 
+                            value={0}
                             readOnly
                         />
                     </div>
