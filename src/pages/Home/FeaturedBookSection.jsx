@@ -2,7 +2,7 @@
 const FeaturedBookSection = () => {
 
     const star = <>
-        <div className="rating rating-lg rating-half">
+        <p className="rating rating-lg rating-half">
             <input type="radio" name="rating-11" className="rating-hidden" />
             <input type="radio" name="rating-11" className="mask mask-star-2 mask-half-1 bg-orange-400" aria-label="0.5 star" />
             <input type="radio" name="rating-11" className="mask mask-star-2 mask-half-2 bg-orange-400" aria-label="1 star" />
@@ -14,7 +14,7 @@ const FeaturedBookSection = () => {
             <input type="radio" name="rating-11" className="mask mask-star-2 mask-half-2 bg-orange-400" aria-label="4 star" />
             <input type="radio" name="rating-11" className="mask mask-star-2 mask-half-1 bg-orange-400" aria-label="4.5 star" defaultChecked />
             <input type="radio" name="rating-11" className="mask mask-star-2 mask-half-2 bg-orange-400" aria-label="5 star" />
-        </div>
+        </p>
     </>
 
     return (
@@ -35,7 +35,7 @@ const FeaturedBookSection = () => {
                                 <p className="py-6">
                                     A high fantasy novel about revenge and dragons. A thrilling tale set in a world filled with action and intrigue.
                                 </p>
-                                <p className="py-2 text-xl">{star}</p>
+                                <h2 className="py-2 text-xl">{star}</h2>
                                 <p className="py-2 text-sm">By Evan Winter</p>
                                 <button className="btn btn-primary">Get Started</button>
                             </div>
@@ -61,7 +61,7 @@ const FeaturedBookSection = () => {
                                 <p className="py-6">
                                     A psychological thriller that keeps you on edge until the very end. A must-read for thriller fans.
                                 </p>
-                                <p className="py-2 text-xl">{star}</p>
+                                <h2 className="py-2 text-xl">{star}</h2>
                                 <p className="py-2 text-sm">By Alex Michaelides</p>
                                 <button className="btn btn-primary">Get Started</button>
                             </div>
@@ -87,7 +87,7 @@ const FeaturedBookSection = () => {
                                 <p className="py-6">
                                     A memoir about a woman who grows up in a strict, survivalist family and eventually escapes to pursue education.
                                 </p>
-                                <p className="py-2 text-xl">{star}</p>
+                                <h2 className="py-2 text-xl">{star}</h2>
                                 <p className="py-2 text-sm">By Tara Westover</p>
                                 <button className="btn btn-primary">Get Started</button>
                             </div>
