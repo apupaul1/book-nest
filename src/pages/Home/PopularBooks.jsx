@@ -34,32 +34,30 @@ const PopularBooks = () => {
                 {books.map(book => (
                     <motion.div
                         animate={{
-                            backgroundColor: ['#fff333', '#ff6b33', '#33ff4f', '#33ffb8 ', '#282d55'],
-                                transition: { duration: 4, repeat: Infinity }
+                            backgroundColor: ['#fff333', '#ff6b33', '#33ff4f'],
+                            transition: { duration: 3, delay: 2, repeat: Infinity }
                         }}
                         key={book._id}
-                        className=" bg-base-100 flex items-center p-8 rounded-2xl shadow-2xl hover:shadow-lg transition"
+                        className="card card-side bg-base-100 shadow-xl"
                     >
-                        <img
-                            src={book.cover_photo}
-                            alt={book.book_title}
-                            className="h-40 w-full object-cover mb-3 rounded flex-1"
-                        />
-                        <div className='flex-1 flex flex-col justify-center items-center'>
-                            <h3 className="text-lg font-semibold">{book.book_title}</h3>
-                            <p className="text-sm text-gray-600">By {book.book_author}</p>
-                            <div className='stats'>
-                                <div className="stat">
-                                    <div className="stat-title">Total Upvotes</div>
-                                    <div className="stat-value text-primary">{book.upvote}
-                                        {/* <Lottie
+                        <figure className='w-1/2'>
+                            <img
+                                src={book.cover_photo}
+                                alt={book.book_title}
+                                className=" w-full rounded"
+                            />
+                        </figure>
+                        <div className=' w-1/2 flex flex-col justify-center space-y-6 items-center font-bold'>
+                            <h3 className="card-title text-lg font-semibold">{book.book_title}</h3>
+                            <p className="text-sm text-gray-600  flex items-center">By {book.book_author}</p>
+                            <p className="card-actions">Total Upvotes : {book.upvote}</p>
+                            {/* <div className="">
+                                        <Lottie
                                             style={{ width: '100px' }}
                                             animationData={loveLottie}
                                             loop={true}>
-                                        </Lottie> */}
-                                    </div>
-                                </div>
-                            </div>
+                                        </Lottie>
+                                    </div> */}
                         </div>
                     </motion.div>
                 ))}

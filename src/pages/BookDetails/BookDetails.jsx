@@ -4,18 +4,18 @@ import { Link } from 'react-router';
 
 const BookDetails = () => {
 
-const book = useLoaderData();
-const {book_title,cover_photo,total_page,book_author,book_category,reading_status,book_overview,upvote,email,name} = book;
+    const book = useLoaderData();
+    const { book_title, cover_photo, total_page, book_author, book_category, reading_status, book_overview, upvote, email, name } = book;
 
     return (
-<div className='w-11/12 mx-auto'>
+        <div className='w-11/12 mx-auto'>
             <h2 className='text-center my-8 text-3xl font-extrabold'>Book Details</h2>
-            <div className="card bg-base-100 shadow-xl lg:w-1/2 mx-auto mb-14 border-3 border-slate-700">
+            <div className="card bg-base-100 shadow-xl lg:w-1/2 mx-auto mb-14 border-3 border-slate-700 p-4">
                 <figure className=''>
                     <img
                         src={cover_photo}
                         alt="Shoes"
-                        className="w-full h-80 object-cover 
+                        className=" object-cover 
                           rounded-t-lg" />
                 </figure>
                 <div className="card-body">

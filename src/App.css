@@ -1,0 +1,22 @@
+/* Rotating Border Animation */
+@keyframes rotateBorderColor {
+  0% {
+    border-color: #f59e0b; /* Amber */
+  }
+  25% {
+    border-color: #3b82f6; /* Blue */
+  }
+  50% {
+    border-color: #10b981; /* Green */
+  }
+  75% {
+    border-color: #ef4444; /* Red */
+  }
+  100% {
+    border-color: #f59e0b; /* Amber (Back to start) */
+  }
+}
+
+.rotating-border {
+  animation: rotateBorderColor 5s linear infinite;
+}
