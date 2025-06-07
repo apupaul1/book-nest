@@ -1,39 +1,21 @@
 import React, { use } from 'react';
-import { AuthContext } from '../../contexts/AuthContext/AuthContext';
 import { motion } from 'motion/react';
-import axios from 'axios';
-import Swal from 'sweetalert2';
+import { AuthContext } from '../../contexts/AuthContext/AuthContext';
 
-const AddBook = () => {
-    const { user } = use(AuthContext);
-    const email = user.email;
-    const name = user.displayName;
-    console.log(user);
+const UpdateBook = ({ _id }) => {
 
-    const handleAddBooks = e => {
-        e.preventDefault();
+    const { user } = use(AuthContext)
+    const name = user.displayName
+    const email = user.email
+
+
+    const handleUpdateBook = (e) => {
+        e.preventDefault()
         const form = e.target;
         const formData = new FormData(form);
-        const data = Object.fromEntries(formData.entries());
-        console.log(data);
+        const updatedBook = Object.fromEntries(formData.entries());
 
-        axios.post('http://localhost:3000/books', data)
-            .then(res => {
-                if (res.data.insertedId) {
-                    Swal.fire({
-                        position: "top-end",
-                        icon: "success",
-                        title: "Sign out sucessfully",
-                        showConfirmButton: false,
-                        timer: 1500,
-                        toast: true
-                    });
-                }
-                form.reset()
-            })
-            .catch(error => {
-                console.log(error);
-            })
+        // send Updated Book
     }
 
 
@@ -57,10 +39,10 @@ const AddBook = () => {
                     ease: "linear"
                 }}
             >
-                <h2 className="text-4xl font-semibold text-amber-500 mb-4 text-center">Add a New Book</h2>
+                <h2 className="text-4xl font-semibold text-amber-500 mb-4 text-center">Update Book Information</h2>
                 <p className='text-center text-sm text-gray-600 mb-8'>Share your book collection with the community. Add a new book, track its reading status, and contribute to the collection.</p>
                 <form
-                    onSubmit={handleAddBooks}
+                    onSubmit={handleUpdateBook}
                     className="space-y-6">
 
                     {/* Book Title */}
@@ -197,9 +179,9 @@ const AddBook = () => {
                     <div className="text-center pt-4">
                         <button
                             type="submit"
-                            className="w-full p-3 bg-amber-500 text-white rounded-lg hover:bg-amber-600 transition-all duration-300"
+                            className="w-full p-3 bg-neutral text-white rounded-lg hover:bg-amber-600 transition-all duration-300"
                         >
-                            Add Book
+                            Update Book
                         </button>
                     </div>
 
@@ -209,4 +191,4 @@ const AddBook = () => {
     );
 };
 
-export default AddBook;
+export default UpdateBook;

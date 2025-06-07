@@ -2,11 +2,14 @@ import React, { use } from 'react';
 import { AuthContext } from '../../contexts/AuthContext/AuthContext';
 import SocialSignIn from '../Shared/SocialSignIn';
 import Swal from 'sweetalert2';
-import { NavLink } from 'react-router';
+import { NavLink, useLocation, useNavigate } from 'react-router';
 
 const Register = () => {
 
-    const { userSignUp } = use(AuthContext)
+    const { userSignUp, updateUser } = use(AuthContext)
+    const location = useLocation()
+    const navigate = useNavigate()
+    const from = '/'
 
 
     const handleRegister = e => {
@@ -19,7 +22,7 @@ const Register = () => {
 
         // User registration
 
-        userSignUp(email, password, name)
+        userSignUp(email, password)
             .then(result => {
                 Swal.fire({
                     title: "Register Successfully!",
@@ -27,6 +30,15 @@ const Register = () => {
                     draggable: true
                 });
                 console.log(result.user);
+                updateUser(name, photoUrl)
+                    .then(() => {
+                        console.log("Updated");
+                    })
+                    .catch((error) => {
+                        console.log(error)
+                    })
+                navigate(from)
+
             })
             .catch(error => {
                 console.log(error);
@@ -52,6 +64,7 @@ const Register = () => {
                                     type="text"
                                     className="input"
                                     placeholder="Name"
+                                    required
                                 />
                                 <label className="label">Email</label>
                                 <input
@@ -65,7 +78,8 @@ const Register = () => {
                                     name='photourl'
                                     type="url"
                                     className="input"
-                                    placeholder="Password"
+                                    placeholder="Photo URL"
+                                    required
                                 />
                                 <label className="label">Password</label>
                                 <input
@@ -79,7 +93,7 @@ const Register = () => {
                                 <div><a className="link link-hover">Forgot password?</a></div>
                                 <button className="btn btn-neutral mt-4">Register</button>
                             </fieldset>
-                            <p className='flex justify-center'>Already have an account ? 
+                            <p className='flex justify-center'>Already have an account ?
                                 <NavLink className='underline ml-2' to={'/signin'}> Login</NavLink>
                             </p>
                         </form>

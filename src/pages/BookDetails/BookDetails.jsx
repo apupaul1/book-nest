@@ -6,6 +6,7 @@ const BookDetails = () => {
 
     const book = useLoaderData();
     const { book_title, cover_photo, total_page, book_author, book_category, reading_status, book_overview, upvote, email, name } = book;
+    
 
     return (
         <div className='w-11/12 mx-auto'>
@@ -15,7 +16,7 @@ const BookDetails = () => {
                     <img
                         src={cover_photo}
                         alt="Shoes"
-                        className=" object-cover 
+                        className=" w-[200px] object-cover 
                           rounded-t-lg" />
                 </figure>
                 <div className="card-body">

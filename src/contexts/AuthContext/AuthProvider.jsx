@@ -1,7 +1,7 @@
-import React, {useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { AuthContext } from './AuthContext';
-import {auth} from '../../firebase/firebase.init'
-import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithEmailAndPassword, signOut, signInWithPopup, onAuthStateChanged } from 'firebase/auth';
+import { auth } from '../../firebase/firebase.init'
+import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithEmailAndPassword, signOut, signInWithPopup, onAuthStateChanged, updateProfile } from 'firebase/auth';
 
 const googleProvider = new GoogleAuthProvider();
 
@@ -15,9 +15,9 @@ const AuthProvider = ({ children }) => {
         return createUserWithEmailAndPassword(auth, email, password);
     }
 
-    const userLogin = (email, password) =>{
+    const userLogin = (email, password) => {
         setLoading(true);
-        return signInWithEmailAndPassword(auth,email,password)
+        return signInWithEmailAndPassword(auth, email, password)
     }
 
     const googleSignIn = () => {
@@ -25,21 +25,28 @@ const AuthProvider = ({ children }) => {
         return signInWithPopup(auth, googleProvider)
     }
 
-    const userSignOut = () =>{
+    const userSignOut = () => {
         setLoading(true);
         return signOut(auth);
     }
 
+    const updateUser = (displayName, photoURL) => {
+        return updateProfile(auth.currentUser, {
+            displayName: displayName,
+            photoURL: photoURL
+        })
+    }
 
-    useEffect(()=>{
-        const unSubscribe = onAuthStateChanged(auth, currentUser =>{
+
+    useEffect(() => {
+        const unSubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser);
             setLoading(false);
         })
-        return () =>{
+        return () => {
             unSubscribe();
         }
-    },[])
+    }, [])
 
     const authInfo = {
         loading,
@@ -47,7 +54,8 @@ const AuthProvider = ({ children }) => {
         userSignUp,
         googleSignIn,
         userLogin,
-        userSignOut
+        userSignOut,
+        updateUser
     }
 
     return (
