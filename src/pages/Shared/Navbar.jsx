@@ -108,7 +108,7 @@ const Navbar = () => {
                             <div className='flex gap-5 items-center'>
                                 <div className="avatar avatar-online">
                                     <div className="w-10 rounded-full">
-                                        <img src="https://img.daisyui.com/images/profile/demo/gordon@192.webp" />
+                                        <img src={user.photoURL || 'https://i.ibb.co/ZYW3VTp/brown-brim.png'} />
                                     </div>
                                 </div>
                                 <button

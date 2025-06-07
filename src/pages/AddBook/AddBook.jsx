@@ -23,7 +23,7 @@ const AddBook = () => {
                     Swal.fire({
                         position: "top-end",
                         icon: "success",
-                        title: "Sign out sucessfully",
+                        title: "Book added sucessfully",
                         showConfirmButton: false,
                         timer: 1500,
                         toast: true
