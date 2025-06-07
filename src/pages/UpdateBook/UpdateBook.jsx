@@ -1,23 +1,45 @@
 import React, { use } from 'react';
 import { motion } from 'motion/react';
 import { AuthContext } from '../../contexts/AuthContext/AuthContext';
+import Swal from 'sweetalert2';
 
-const UpdateBook = ({ _id }) => {
+const UpdateBook = ({ book }) => {
+    const { user } = use(AuthContext);
+    const name = user.displayName;
+    const email = user.email;
 
-    const { user } = use(AuthContext)
-    const name = user.displayName
-    const email = user.email
-
+    const { _id } = book;
 
     const handleUpdateBook = (e) => {
-        e.preventDefault()
+        e.preventDefault();
         const form = e.target;
         const formData = new FormData(form);
         const updatedBook = Object.fromEntries(formData.entries());
+        console.log(updatedBook);
 
-        // send Updated Book
-    }
+        fetch(`http://localhost:3000/books/${_id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(updatedBook),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                if (data.modifiedCount) {
 
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'Updated successfully',
+                        showConfirmButton: false,
+                        timer: 1500,
+                        toast: true,
+                    });
+                    form.reset()
+                }
+            });
+    };
 
     return (
         <div className='bg-slate-50 p-8'>
@@ -25,11 +47,11 @@ const UpdateBook = ({ _id }) => {
                 className="max-w-4xl mx-auto p-8 bg-white rounded-xl shadow-2xl border-2 border-gray-300"
                 animate={{
                     borderColor: [
-                        "#f59e0b", // Amber
-                        "#3b82f6", // Blue
-                        "#10b981", // Green
-                        "#ef4444", // Red
-                        "#f59e0b", // Amber (Back to start)
+                        "#f59e0b",
+                        "#3b82f6",
+                        "#10b981",
+                        "#ef4444",
+                        "#f59e0b",
                     ]
                 }}
                 transition={{
@@ -40,19 +62,17 @@ const UpdateBook = ({ _id }) => {
                 }}
             >
                 <h2 className="text-4xl font-semibold text-amber-500 mb-4 text-center">Update Book Information</h2>
-                <p className='text-center text-sm text-gray-600 mb-8'>Share your book collection with the community. Add a new book, track its reading status, and contribute to the collection.</p>
-                <form
-                    onSubmit={handleUpdateBook}
-                    className="space-y-6">
-
+                <p className='text-center text-sm text-gray-600 mb-8'>Share your book collection with the community. Update the book details to keep the records fresh.</p>
+                <form onSubmit={handleUpdateBook} className="space-y-6">
                     {/* Book Title */}
                     <div>
                         <label className="block text-sm font-medium mb-2 text-gray-800">Book Title</label>
                         <input
                             type="text"
+                            name="book_title"
+                            defaultValue={book.book_title}
                             className="w-full p-3 bg-base-100 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-amber-500"
                             placeholder="Enter book title"
-                            name="book_title"
                             required
                         />
                     </div>
@@ -62,9 +82,10 @@ const UpdateBook = ({ _id }) => {
                         <label className="block text-sm font-medium mb-2 text-gray-800">Book Author</label>
                         <input
                             type="text"
-                            className="w-full p-3 bg-base-100 rounded-lg border-2 border-gray-300  focus:outline-none focus:border-amber-500"
-                            placeholder="Enter author's name"
                             name="book_author"
+                            defaultValue={book.book_author}
+                            className="w-full p-3 bg-base-100 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-amber-500"
+                            placeholder="Enter author's name"
                             required
                         />
                     </div>
@@ -73,11 +94,12 @@ const UpdateBook = ({ _id }) => {
                     <div>
                         <label className="text-black block text-sm font-medium mb-1">Book Category</label>
                         <select
-                            className="w-full p-3 bg-base-100 border-2 border-gray-300 rounded-lg  focus:outline-none focus:border-amber-500"
                             name='book_category'
+                            defaultValue={book.book_category}
+                            className="w-full p-3 bg-base-100 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-amber-500"
                             required
                         >
-                            <option>Select category</option>
+                            <option disabled>Select category</option>
                             <option>Fiction</option>
                             <option>Non-Fiction</option>
                             <option>Fantasy</option>
@@ -92,11 +114,12 @@ const UpdateBook = ({ _id }) => {
                     <div>
                         <label className="block text-sm font-medium mb-2 text-gray-800">Reading Status</label>
                         <select
-                            className="w-full p-3 bg-base-100 border-2 border-gray-300 rounded-lg  focus:outline-none focus:border-amber-500"
                             name='reading_status'
+                            defaultValue={book.reading_status}
+                            className="w-full p-3 bg-base-100 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-amber-500"
                             required
                         >
-                            <option>Select status</option>
+                            <option disabled>Select status</option>
                             <option>Read</option>
                             <option>Reading</option>
                             <option>Want-to-Read</option>
@@ -108,9 +131,10 @@ const UpdateBook = ({ _id }) => {
                         <label className="block text-sm font-medium mb-2 text-gray-800">Total Pages</label>
                         <input
                             type="number"
-                            className="w-full p-3 bg-base-100 rounded-lg border-2 border-gray-300  focus:outline-none focus:border-amber-500"
-                            placeholder="Enter total pages"
                             name="total_pages"
+                            defaultValue={book.total_pages}
+                            className="w-full p-3 bg-base-100 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-amber-500"
+                            placeholder="Enter total pages"
                             required
                         />
                     </div>
@@ -120,9 +144,10 @@ const UpdateBook = ({ _id }) => {
                         <label className="block text-sm font-medium mb-2 text-gray-800">Cover Photo</label>
                         <input
                             type="url"
-                            className="w-full p-3 bg-base-100 rounded-lg border-2 border-gray-300  focus:outline-none focus:border-amber-500"
-                            placeholder="Enter cover photo URL"
                             name="cover_photo"
+                            defaultValue={book.cover_photo}
+                            className="w-full p-3 bg-base-100 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-amber-500"
+                            placeholder="Enter cover photo URL"
                             required
                         />
                     </div>
@@ -133,8 +158,8 @@ const UpdateBook = ({ _id }) => {
                         <input
                             name="user_name"
                             type="text"
-                            className="w-full p-3 rounded-lg bg-gray-200 text-gray-600 border-2 border-gray-300 "
                             value={name}
+                            className="w-full p-3 rounded-lg bg-gray-200 text-gray-600 border-2 border-gray-300"
                             readOnly
                         />
                     </div>
@@ -145,8 +170,8 @@ const UpdateBook = ({ _id }) => {
                         <input
                             name="user_email"
                             type="email"
-                            className="w-full p-3 rounded-lg bg-gray-200 text-gray-600 border-2 border-gray-300 "
                             value={email}
+                            className="w-full p-3 rounded-lg bg-gray-200 text-gray-600 border-2 border-gray-300"
                             readOnly
                         />
                     </div>
@@ -155,10 +180,11 @@ const UpdateBook = ({ _id }) => {
                     <div>
                         <label className="block text-sm font-medium mb-2 text-gray-800">Book Overview</label>
                         <textarea
-                            className="w-full p-3 bg-base-100 rounded-lg border-2 border-gray-300  focus:outline-none focus:border-amber-500"
+                            name="book_overview"
+                            defaultValue={book.book_overview}
+                            className="w-full p-3 bg-base-100 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-amber-500"
                             rows="4"
                             placeholder="Provide a short overview of the book"
-                            name="book_overview"
                             required
                         ></textarea>
                     </div>
@@ -169,9 +195,9 @@ const UpdateBook = ({ _id }) => {
                         <input
                             name="upvotes"
                             type="number"
-                            className="w-full p-3 bg-gray-100 rounded-lg text-gray-600 border-2 border-gray-300"
-                            value={0}
+                            value={book.upvotes || 0}
                             readOnly
+                            className="w-full p-3 bg-gray-100 rounded-lg text-gray-600 border-2 border-gray-300"
                         />
                     </div>
 
@@ -184,7 +210,6 @@ const UpdateBook = ({ _id }) => {
                             Update Book
                         </button>
                     </div>
-
                 </form>
             </motion.div>
         </div>

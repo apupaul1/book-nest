@@ -1,4 +1,4 @@
-import { div } from 'motion/react-client';
+
 import React, { use, useState } from 'react';
 import Swal from 'sweetalert2';
 import { Link } from 'react-router';
@@ -39,14 +39,15 @@ const MyAddedBooks = ({ addedBooks }) => {
                             setDeleteBook(reamainingBooks)
 
                         }
+                        
                     })
             }
         });
     }
 
 
-    const updateBook = (_id) => {
-        setUpdateBooks(_id);
+    const updateBook = (book) => {
+        setUpdateBooks(book);
         const modal = document.getElementById('my_modal_5')
 
         if (modal) {
@@ -116,7 +117,7 @@ const MyAddedBooks = ({ addedBooks }) => {
                                         <td className='flex justify-center'>
                                             <button
                                                 className='btn mr-4'
-                                                onClick={() => updateBook(book._id)}>Update</button>
+                                                onClick={() => updateBook(book)}>Update</button>
 
                                             <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
 
@@ -127,7 +128,7 @@ const MyAddedBooks = ({ addedBooks }) => {
                                                     </form>
                                                     {
                                                         updateBooks && (
-                                                            <UpdateBook _id={updateBooks}></UpdateBook>
+                                                            <UpdateBook book={updateBooks} ></UpdateBook>
                                                         )
                                                     }
                                                 </div>
