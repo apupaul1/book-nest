@@ -1,4 +1,6 @@
 import React from 'react';
+import Lottie from 'lottie-react';
+import bookAnimation from '../../assets/lottie/book-lottie.json';
 
 const categories = [
   { id: 1, category: 'Fiction' },
@@ -15,16 +17,28 @@ const categories = [
 
 const FeaturedCategories = () => {
   return (
-    <div className="my-10 px-4 max-w-6xl mx-auto">
-      <h2 className="text-3xl font-bold mb-6 text-center">📚 Featured Categories</h2>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+    <section className="my-12 px-4 max-w-7xl mx-auto">
+      <h2 className="text-4xl font-extrabold mb-10 text-center text-gray-800">
+        📚 Featured Categories
+      </h2>
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
         {categories.map(cat => (
-          <div key={cat.id} className="bg-base-100 text-center p-4 rounded-xl shadow-2xl hover:shadow-md transition">
-            <p className="font-medium text-lg">{cat.category}</p>
+          <div
+            key={cat.id}
+            className="group cursor-pointer bg-gradient-to-br from-white to-gray-50 border border-gray-200 hover:border-indigo-500 p-6 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 ease-in-out"
+          >
+            <div className="flex flex-col items-center space-y-3">
+              <div className="w-16 h-16">
+                <Lottie animationData={bookAnimation} loop={true} />
+              </div>
+              <p className="font-semibold text-lg text-center group-hover:text-indigo-600 transition-colors duration-200">
+                {cat.category}
+              </p>
+            </div>
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 
