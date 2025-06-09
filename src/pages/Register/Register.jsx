@@ -3,6 +3,7 @@ import { AuthContext } from '../../contexts/AuthContext/AuthContext';
 import SocialSignIn from '../Shared/SocialSignIn';
 import Swal from 'sweetalert2';
 import { NavLink, useLocation, useNavigate } from 'react-router';
+import axios from 'axios';
 
 const Register = () => {
 
@@ -19,6 +20,12 @@ const Register = () => {
         const password = form.password.value;
         const name = form.name.value;
         const photoUrl = form.photourl.value
+
+        const data = {
+            "name": name,
+            "email": email,
+            "photoUrl": photoUrl
+        }
 
         // User registration
 
@@ -38,6 +45,14 @@ const Register = () => {
                         console.log(error)
                     })
                 navigate(from)
+
+                axios.post('http://localhost:3000/users', data)
+                    .then(res => {
+                        console.log(res.data)
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    })
 
             })
             .catch(error => {

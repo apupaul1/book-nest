@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import Lottie from 'lottie-react';
 import loveLottie from '../../assets/lottie/Animation - 1749140871253.json'
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
+import Loading from '../Shared/Loading'
 
 const PopularBooks = () => {
     const [books, setBooks] = useState([]);
@@ -24,40 +25,44 @@ const PopularBooks = () => {
     }, []);
 
     if (loading) {
-        return <div>Loading popular books...</div>;
+        return <Loading></Loading>;
     }
 
     return (
-        <div className="my-10 px-4 w-10/12 mx-auto">
-            <h2 className="text-4xl font-bold mb-8 text-center">Popular Books</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div className="my-10 px-4 w-11/12 mx-auto">
+            <h2 className="text-4xl font-bold mb-10 text-center text-indigo-700">
+                Popular Books
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
                 {books.map(book => (
                     <motion.div
-                        animate={{
-                            backgroundColor: ['#fff333', '#ff6b33', '#33ff4f'],
-                            transition: { duration: 3, delay: 2, repeat: Infinity }
-                        }}
+                        initial={{ backgroundColor: '#fffdf3' }}
+                        animate={{ backgroundColor: ['#fffdf3', '#f0f9ff', '#fffdf3'] }}
+                        transition={{ duration: 6, repeat: Infinity, repeatType: 'loop' }}
                         key={book._id}
-                        className="card card-side bg-base-100 shadow-xl"
+                        className="card card-side hover:shadow-2xl transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 rounded-xl overflow-hidden border border-gray-200"
                     >
-                        <figure className='w-1/2'>
+                        <figure className="w-1/2 p-4 flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-pink-50">
                             <img
                                 src={book.cover_photo}
                                 alt={book.book_title}
-                                className=" w-full rounded"
+                                className="h-60 w-full object-contain rounded-lg shadow-md"
                             />
                         </figure>
-                        <div className=' w-1/2 flex flex-col justify-center space-y-6 items-center font-bold'>
-                            <h3 className="card-title text-lg font-semibold">{book.book_title}</h3>
-                            <p className="text-sm text-gray-600  flex items-center">By {book.book_author}</p>
-                            <p className="card-actions">Total Upvotes : {book.upvote}</p>
+
+                        <div className="w-1/2 px-4 py-6 flex flex-col justify-center items-center text-center space-y-3 font-semibold">
+                            <h3 className="text-xl font-bold text-indigo-800">{book.book_title}</h3>
+                            <p className="text-sm text-gray-500">By {book.book_author}</p>
+                            <p className="text-sm text-rose-600 bg-rose-100 px-3 py-1 rounded-full">
+                                ❤️ {book.upvote} Upvotes
+                            </p>
                             {/* <div className="">
-                                        <Lottie
-                                            style={{ width: '100px' }}
-                                            animationData={loveLottie}
-                                            loop={true}>
-                                        </Lottie>
-                                    </div> */}
+                                <Lottie
+                                    style={{ width: '100px' }}
+                                    animationData={loveLottie}
+                                    loop={true}>
+                                </Lottie>
+                            </div> */}
                         </div>
                     </motion.div>
                 ))}
@@ -65,5 +70,6 @@ const PopularBooks = () => {
         </div>
     );
 };
+
 
 export default PopularBooks;

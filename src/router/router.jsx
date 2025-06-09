@@ -19,7 +19,6 @@ const router = createBrowserRouter([
         children: [
             {
                 index: true,
-                hydrateFallbackElement: <Loading></Loading>,
                 Component: Home
             },
             {
@@ -36,12 +35,10 @@ const router = createBrowserRouter([
             },
             {
                 path: 'register',
-                hydrateFallbackElement: <Loading></Loading>,
                 Component: Register
             },
             {
                 path: 'signin',
-                hydrateFallbackElement: <Loading></Loading>,
                 Component: SignIn
             },
             {
