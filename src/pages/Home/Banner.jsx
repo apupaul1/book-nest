@@ -19,7 +19,7 @@ const Banner = () => {
                         }}
                         className="hero h-[540px]"
                     >
-                        <div className='w-[500px] lg:w-full flex gap-20 items-center px-6 md:px-16 backdrop-blur-xs'>
+                        <div className='w-[500px] lg:w-full flex gap-12 items-center px-6 md:px-16 backdrop-blur-xs'>
                             <div className='lg:ml-6 '>
                                 <h1 className="mb-5 text-3xl lg:text-5xl font-bold text-neutral drop-shadow-lg">
                                     Welcome to BookNest

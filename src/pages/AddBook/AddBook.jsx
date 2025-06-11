@@ -3,12 +3,14 @@ import { AuthContext } from '../../contexts/AuthContext/AuthContext';
 import { motion } from 'motion/react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import UseAxiosSecure from '../../hooks/UseAxiosSecure';
 
 const AddBook = () => {
     const { user } = use(AuthContext);
     const email = user.email;
     const name = user.displayName;
-    console.log(user);
+
+    const axiosSecure = UseAxiosSecure();
 
     const handleAddBooks = e => {
         e.preventDefault();
@@ -17,7 +19,7 @@ const AddBook = () => {
         const data = Object.fromEntries(formData.entries());
         console.log(data);
 
-        axios.post('http://localhost:3000/books', data)
+        axiosSecure.post('https://b11-a11-c19-server.vercel.app/books', data)
             .then(res => {
                 if (res.data.insertedId) {
                     Swal.fire({
@@ -185,7 +187,7 @@ const AddBook = () => {
                     <div>
                         <label className="block text-sm font-medium mb-2 text-gray-800">Upvotes</label>
                         <input
-                            name="upvotes"
+                            name="upvote"
                             type="number"
                             className="w-full p-3 bg-gray-100 rounded-lg text-gray-600 border-2 border-gray-300"
                             value={0}

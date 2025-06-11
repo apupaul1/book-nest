@@ -24,14 +24,14 @@ const router = createBrowserRouter([
             {
                 path: 'bookshelf',
                 hydrateFallbackElement: <Loading></Loading>,
-                loader: () => fetch('http://localhost:3000/books'),
+                loader: () => fetch('https://b11-a11-c19-server.vercel.app/books'),
                 Component: BookShelf
             },
             {
                 path: '/books/:id',
                 hydrateFallbackElement: <Loading></Loading>,
                 Component: BookDetails,
-                loader: ({ params }) => fetch(`http://localhost:3000/books/${params.id}`)
+                loader: ({ params }) => fetch(`https://b11-a11-c19-server.vercel.app/books/${params.id}`)
             },
             {
                 path: 'register',
@@ -58,7 +58,7 @@ const router = createBrowserRouter([
             }
         ]
     },
-        {
+    {
         path: '/*',
         element: <ErrorPage></ErrorPage>
     }

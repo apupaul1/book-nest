@@ -6,6 +6,7 @@ import { AuthContext } from '../../contexts/AuthContext/AuthContext';
 import Swal from 'sweetalert2';
 import axios from 'axios';
 
+
 const BookDetails = () => {
     const { user } = useContext(AuthContext);
     const book = useLoaderData();
@@ -32,7 +33,7 @@ const BookDetails = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:3000/reviews?book_id=${_id}`)
+        fetch(`https://b11-a11-c19-server.vercel.app/reviews?book_id=${_id}`)
             .then(res => res.json())
             .then(data => {
                 const filtered = data.filter(r => r.book_id === _id);
@@ -66,7 +67,7 @@ const BookDetails = () => {
             review_text: reviewText
         };
 
-        axios.post('http://localhost:3000/reviews', data)
+        axios.post('https://b11-a11-c19-server.vercel.app/reviews', data)
             .then(res => {
                 if (res.data.insertedId) {
                     Swal.fire({
@@ -95,7 +96,7 @@ const BookDetails = () => {
         const readingStatus = getNextStatus(status);
         setStatus(readingStatus);
 
-        fetch(`http://localhost:3000/books/${_id}`, {
+        fetch(`https://b11-a11-c19-server.vercel.app/books/${_id}`, {
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ reading_status: readingStatus })
@@ -103,6 +104,18 @@ const BookDetails = () => {
     };
 
     const handleUpvote = () => {
+
+        if (!user) {
+            return Swal.fire({
+                icon: 'error',
+                title: 'Login Required',
+                text: 'Please login to upvote this book.',
+                confirmButtonText: 'OK',
+                timer: 3000,
+                showConfirmButton: true
+            });
+        }
+
         if (user.email === user_email) {
             return Swal.fire({
                 icon: "error",
@@ -114,7 +127,7 @@ const BookDetails = () => {
         setUpvoteCount(prev => {
             const newCount = prev + 1;
 
-            fetch(`http://localhost:3000/books/${_id}`, {
+            fetch(`https://b11-a11-c19-server.vercel.app/books/${_id}`, {
                 method: 'PATCH',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ upvote: newCount })
@@ -135,7 +148,7 @@ const BookDetails = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`http://localhost:3000/reviews/${reviewId}`)
+                axios.delete(`https://b11-a11-c19-server.vercel.app/reviews/${reviewId}`)
                     .then(res => {
                         if (res.data.deletedCount > 0) {
                             setReviews(prev => prev.filter(r => r._id !== reviewId));
@@ -152,7 +165,7 @@ const BookDetails = () => {
     };
 
     const handleReviewUpdate = async (id) => {
-        const res = await fetch(`http://localhost:3000/reviews/${id}`, {
+        const res = await fetch(`https://b11-a11-c19-server.vercel.app/reviews/${id}`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ review_text: editText }),
@@ -222,11 +235,24 @@ const BookDetails = () => {
                         </button>
                         <button
                             type="button"
-                            onClick={() => setShowReviewBox(prev => !prev)}
+                            onClick={() => {
+                                if (!user) {
+                                    return Swal.fire({
+                                        icon: 'error',
+                                        title: 'Login Required',
+                                        text: 'Please login to upvote this book.',
+                                        confirmButtonText: 'OK',
+                                        timer: 3000,
+                                        showConfirmButton: true
+                                    });
+                                }
+                                setShowReviewBox(prev => !prev);
+                            }}
                             className="flex items-center gap-2 text-blue-600 hover:text-blue-800"
                         >
                             <FaRegCommentDots /> Leave a Review
                         </button>
+
                     </div>
 
                     {
@@ -312,7 +338,7 @@ const BookDetails = () => {
 
                     <div className="text-center mt-6">
                         <Link to='/bookshelf'>
-                            <button className='btn btn-outline w-full'>← Go Back</button>
+                            <button className='btn w-full btn-neutral'>← Go Back</button>
                         </Link>
                     </div>
                 </div>

@@ -9,7 +9,7 @@ const PopularBooks = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch('http://localhost:3000/books')
+        fetch('https://b11-a11-c19-server.vercel.app/books')
             .then(res => res.json())
             .then(data => {
                 const sortedBooks = data

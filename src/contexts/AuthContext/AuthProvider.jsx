@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { AuthContext } from './AuthContext';
 import { auth } from '../../firebase/firebase.init'
 import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithEmailAndPassword, signOut, signInWithPopup, onAuthStateChanged, updateProfile } from 'firebase/auth';
+import axios from 'axios';
 
 const googleProvider = new GoogleAuthProvider();
 
@@ -42,6 +43,14 @@ const AuthProvider = ({ children }) => {
         const unSubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser);
             setLoading(false);
+            // if (currentUser?.email) {
+            //     const userData = { email: currentUser.email }
+            //     axios.post('https://b11-a11-c19-server.vercel.app/jwt', userData)
+            //     .then(res => {
+            //         console.log(res.data)
+            //     })
+            //     .catch(error => console.log(error));
+            // }
         })
         return () => {
             unSubscribe();

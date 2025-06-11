@@ -2,32 +2,25 @@ import React, { use } from 'react';
 import { motion } from 'motion/react';
 import { AuthContext } from '../../contexts/AuthContext/AuthContext';
 import Swal from 'sweetalert2';
+import UseAxiosSecure from '../../hooks/UseAxiosSecure';
 
-const UpdateBook = ({ book }) => {
-    const { user } = use(AuthContext);
-    const name = user.displayName;
-    const email = user.email;
-
+const UpdateBook = ({ book, onUpdateSuccess }) => {
     const { _id } = book;
+    const { user } = use(AuthContext)
+    const email = user.email;
+    const name = user.displayName
+
+    const axiosSecure = UseAxiosSecure();
 
     const handleUpdateBook = (e) => {
         e.preventDefault();
         const form = e.target;
         const formData = new FormData(form);
         const updatedBook = Object.fromEntries(formData.entries());
-        console.log(updatedBook);
 
-        fetch(`http://localhost:3000/books/${_id}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(updatedBook),
-        })
-            .then((res) => res.json())
-            .then((data) => {
-                if (data.modifiedCount) {
-
+        axiosSecure.put(`/books/${_id}`, updatedBook)
+            .then((res) => {
+                if (res.data.modifiedCount) {
                     Swal.fire({
                         position: 'top-end',
                         icon: 'success',
@@ -36,7 +29,12 @@ const UpdateBook = ({ book }) => {
                         timer: 1500,
                         toast: true,
                     });
-                    form.reset()
+
+                    if (onUpdateSuccess) {
+                        onUpdateSuccess({ ...book, ...updatedBook });
+                    }
+                    const modal = document.getElementById("my_modal_5");
+                    if (modal) modal.close();
                 }
             });
     };
@@ -193,7 +191,7 @@ const UpdateBook = ({ book }) => {
                     <div>
                         <label className="block text-sm font-medium mb-2 text-gray-800">Upvotes</label>
                         <input
-                            name="upvotes"
+                            name="upvote"
                             type="number"
                             value={book.upvotes || 0}
                             readOnly

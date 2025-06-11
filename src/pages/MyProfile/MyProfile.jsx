@@ -3,6 +3,7 @@ import { AuthContext } from '../../contexts/AuthContext/AuthContext';
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from 'recharts';
 import Loading from '../Shared/Loading';
 import { motion } from 'motion/react';
+import UseAxiosSecure from '../../hooks/UseAxiosSecure';
 
 const COLORS = ['#8884d8', '#82ca9d', '#ffc658', '#ff7f50', '#a29bfe'];
 
@@ -12,17 +13,18 @@ const MyProfile = () => {
     const [loading, setLoading] = useState(true);
 
 
+    const axiosSecure = UseAxiosSecure();
+
 
     useEffect(() => {
         if (user?.email) {
-            fetch(`http://localhost:3000/books?email=${user.email}`)
-                .then(res => res.json())
-                .then(data => {
-                    setBooks(data);
+            axiosSecure.get(`/books/mybooks?email=${user.email}`)
+                .then(res => {
+                    setBooks(res.data);
                     setLoading(false);
                 });
         }
-    }, [user]);
+    }, [user, axiosSecure]);
 
     if (loading) return <Loading />;
 
@@ -70,7 +72,7 @@ const MyProfile = () => {
                 </div>
 
                 {/* Summary Info */}
-                <div className="grid grid-cols-2 gap-4 text-center">
+                <div className="grid grid-cols-2 gap-4 text-center mb-12">
                     <div className="bg-blue-100 p-4 rounded-xl">
                         <p className="text-xl font-semibold text-blue-700">{totalBooks}</p>
                         <p className="text-sm text-gray-600">Total Books</p>
