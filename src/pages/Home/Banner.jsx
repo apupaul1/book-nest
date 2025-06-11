@@ -17,14 +17,14 @@ const Banner = () => {
                             backgroundPosition: "center",
                             backgroundRepeat: "no-repeat",
                         }}
-                        className="hero h-[540px]"
+                        className="hero h-[420px] lg:h-[540px]"
                     >
-                        <div className='w-[500px] lg:w-full flex gap-12 items-center px-6 md:px-16 backdrop-blur-xs'>
-                            <div className='lg:ml-6 '>
-                                <h1 className="mb-5 text-3xl lg:text-5xl font-bold text-neutral drop-shadow-lg">
+                        <div className='flex flex-col-reverse lg:flex-row items-center justify-between w-full px-4 sm:px-8 lg:px-16 gap-6 lg:gap-12'>
+                            <div className='text-center lg:text-left lg:ml-6 max-w-xl'>
+                                <h1 className="mb-4 text-2xl sm:text-3xl lg:text-5xl font-bold text-neutral drop-shadow-lg">
                                     Welcome to BookNest
                                 </h1>
-                                <p className="mb-5 text-neutral drop-shadow">
+                                <p className="mb-4 text-sm sm:text-base text-neutral drop-shadow">
                                     Your personal digital bookshelf — organize, track, and explore your reading journey effortlessly.
                                 </p>
                                 <motion.button
@@ -36,18 +36,18 @@ const Banner = () => {
                                 </motion.button>
                             </div>
 
-                            <div className='hidden md:flex gap-10'>
+                            <div className='hidden md:flex justify-center md:justify-end gap-4 md:gap-8 lg:gap-10 '>
                                 <motion.img
                                     animate={{ x: [0, 100, 0] }}
                                     transition={{ duration: 6, repeat: Infinity }}
-                                    className='w-[300px] rounded-bl-2xl rounded-t-2xl border-l-4 border-red-600 shadow-lg'
+                                    className='w-28 sm:w-40 md:w-56 lg:w-[300px] rounded-bl-2xl rounded-t-2xl border-l-4 border-red-600 shadow-lg'
                                     src={book1}
                                     alt="book1"
                                 />
                                 <motion.img
                                     animate={{ y: [0, 100, 0] }}
                                     transition={{ duration: 6, delay: 2, repeat: Infinity }}
-                                    className='w-[300px] rounded-bl-2xl rounded-t-2xl border-l-4 border-red-600 shadow-lg'
+                                    className='w-28 sm:w-40 md:w-56 lg:w-[300px] rounded-bl-2xl rounded-t-2xl border-l-4 border-red-600 shadow-lg'
                                     src={book2}
                                     alt="book2"
                                 />
@@ -63,7 +63,7 @@ const Banner = () => {
                 {/* Slide 2 - Organize */}
                 <div id="slide2" className="carousel-item relative w-full">
                     <div
-                        className="hero h-[540px]"
+                        className="hero h-[420px] lg:h-[540px]"
                         style={{
                             backgroundImage: "url(https://i.ibb.co/8nQfm5Dt/banner2.jpg)",
                             backgroundSize: "cover",
@@ -71,15 +71,15 @@ const Banner = () => {
                         }}
                     >
                         <div className="hero-overlay bg-opacity-60"></div>
-                        <div className="hero-content text-neutral-content text-center">
+                        <div className="hero-content text-neutral-content text-center px-4 sm:px-6">
                             <motion.div
                                 className="max-w-md"
                                 initial={{ opacity: 0, scale: 0.9 }}
                                 animate={{ opacity: 1, scale: 1 }}
                                 transition={{ duration: 1 }}
                             >
-                                <h1 className="mb-5 text-4xl font-bold">Organize Your Library</h1>
-                                <p className="mb-5">
+                                <h1 className="mb-4 text-2xl sm:text-3xl lg:text-4xl font-bold">Organize Your Library</h1>
+                                <p className="mb-4 text-sm sm:text-base">
                                     Keep track of what you’ve read, what you own, and what you want to read next — all in one place.
                                 </p>
                                 <motion.button
@@ -101,7 +101,7 @@ const Banner = () => {
                 {/* Slide 3 - Discover */}
                 <div id="slide3" className="carousel-item relative w-full">
                     <div
-                        className="hero h-[540px]"
+                        className="hero h-[420px] lg:h-[540px]"
                         style={{
                             backgroundImage: "url(https://i.ibb.co/m5tvtGGP/library-with-round-window-bookcase-with-bookcase-left.jpg)",
                             backgroundSize: "cover",
@@ -109,15 +109,15 @@ const Banner = () => {
                         }}
                     >
                         <div className="hero-overlay bg-opacity-60"></div>
-                        <div className="hero-content text-neutral-content text-center">
+                        <div className="hero-content text-neutral-content text-center px-4 sm:px-6">
                             <motion.div
                                 className="max-w-md"
                                 initial={{ opacity: 0, y: 50 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 1 }}
                             >
-                                <h1 className="mb-5 text-4xl font-bold">Discover Your Next Favorite</h1>
-                                <p className="mb-5">
+                                <h1 className="mb-4 text-2xl sm:text-3xl lg:text-4xl font-bold">Discover Your Next Favorite</h1>
+                                <p className="mb-4 text-sm sm:text-base">
                                     Get AI-powered book suggestions based on your reading taste and favorite genres.
                                 </p>
                                 <motion.button
@@ -135,7 +135,9 @@ const Banner = () => {
                         <a href="#slide1" className="btn btn-circle">❯</a>
                     </div>
                 </div>
+
             </div>
+
         </>
     );
 };

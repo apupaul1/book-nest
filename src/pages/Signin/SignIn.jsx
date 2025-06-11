@@ -4,6 +4,8 @@ import SocialSignIn from '../Shared/SocialSignIn';
 import Swal from 'sweetalert2';
 import { NavLink, useNavigate } from 'react-router';
 import { useLocation } from 'react-router';
+import Lottie from 'lottie-react';
+import signInLottie from '../../assets/lottie/SignIn.json'
 
 const SignIn = () => {
 
@@ -35,9 +37,13 @@ const SignIn = () => {
     }
     return (
         <div className="hero bg-base-200 min-h-screen ">
-            <div className="hero-content flex-col lg:flex-row-reverse">
-                <div className="text-center lg:text-left">
-
+            <div className="hero-content flex-col lg:flex-row-reverse lg:relative">
+                <div className="text-center lg:text-left lg:absolute top-0 left-85">
+                    <Lottie
+                        style={{ width: '300px' }}
+                        animationData={signInLottie}
+                        loop={true}>
+                    </Lottie>
                 </div>
                 <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl p-5">
                     <div className="card-body">
@@ -60,7 +66,7 @@ const SignIn = () => {
                                 <div><a className="link link-hover">Forgot password?</a></div>
                                 <button className="btn btn-neutral mt-4">Login</button>
                             </fieldset>
-                            <p className='flex justify-center'>Don't have any account 
+                            <p className='flex justify-center'>Don't have any account
                                 <NavLink className='underline ml-2' to={'/register'}>Register</NavLink>
                             </p>
                         </form>

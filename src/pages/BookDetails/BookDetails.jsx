@@ -78,9 +78,15 @@ const BookDetails = () => {
                         timer: 1500,
                         toast: true
                     });
+
+                    const newReview = {
+                        ...data,
+                        _id: res.data.insertedId
+                    };
+
                     setReviews(prev => [...prev, data]);
                     form.reset();
-                    setShowReviewBox(false); // ✅ Auto-hide review box
+                    setShowReviewBox(false); 
                 }
             })
             .catch(console.log);

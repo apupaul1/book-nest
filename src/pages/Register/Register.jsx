@@ -1,9 +1,11 @@
 import React, { use } from 'react';
+import Lottie from 'lottie-react';
 import { AuthContext } from '../../contexts/AuthContext/AuthContext';
 import SocialSignIn from '../Shared/SocialSignIn';
 import Swal from 'sweetalert2';
 import { NavLink, useLocation, useNavigate } from 'react-router';
 import axios from 'axios';
+import registerLottie from '../../assets/lottie/register.json'
 
 const Register = () => {
 
@@ -63,12 +65,16 @@ const Register = () => {
     }
 
     return (
-        <div className="hero bg-base-200 min-h-screen">
-            <div className="hero-content flex-col lg:flex-row-reverse">
-                <div className="text-center lg:text-left">
-
+        <div className="hero bg-base-200 min-h-screen ">
+            <div className="hero-content flex-col lg:flex-row-reverse lg:relative">
+                <div className="text-center lg:text-left lg:absolute lg:top-3 lg:-left-78">
+                    <Lottie
+                        style={{ width: '300px' }}
+                        animationData={registerLottie}
+                        loop={true}>
+                    </Lottie>
                 </div>
-                <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+                <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl ">
                     <div className="card-body">
                         <h1 className="text-5xl font-bold">Register now!</h1>
                         <form onSubmit={handleRegister}>
