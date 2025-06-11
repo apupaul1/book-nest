@@ -1,8 +1,8 @@
-# Virtual Bookshelf - Client
+# BOOK NEST - Client
 
 ## Project Name
 
-**Virtual Bookshelf**
+**BOOK NEST**
 
 ## Purpose
 
