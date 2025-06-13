@@ -4,7 +4,7 @@ const FeaturedBookSection = () => {
 
     return (
         <div className="w-10/12 mx-auto">
-            <h2 className="text-3xl text-center mt-10 font-bold">Newly Added Books</h2>
+            <h2 className="text-2xl md:text-3xl text-center mt-10 font-bold">Newly Added Books</h2>
             <div className="carousel w-full py-10">
                 {/* Carousel Item 1 */}
                 <div id="slide1" className="carousel-item relative w-full">
@@ -12,11 +12,11 @@ const FeaturedBookSection = () => {
                         <div className="hero-content gap-12 flex-col lg:flex-row">
                             <img
                                 src="https://i.ibb.co/93qQdwt4/download-3.jpg"
-                                className="max-w-sm rounded-lg shadow-2xl"
+                                className="w-[120px] md:w-[200px] md:max-w-sm rounded-lg shadow-2xl"
                                 alt="The Rage of Dragons"
                             />
                             <div>
-                                <h1 className="text-5xl font-bold">The Rage of Dragons</h1>
+                                <h1 className="text-2xl md:text-5xl font-bold">The Rage of Dragons</h1>
                                 <p className="py-6">
                                     A high fantasy novel about revenge and dragons. A thrilling tale set in a world filled with action and intrigue.
                                 </p>
@@ -38,11 +38,11 @@ const FeaturedBookSection = () => {
                         <div className="hero-content gap-12 flex-col lg:flex-row">
                             <img
                                 src="https://i.ibb.co/84LNP0qw/download-2.jpg"
-                                className="max-w-sm rounded-lg shadow-2xl"
+                                className="w-[120px] md:w-[200px]  rounded-lg shadow-2xl"
                                 alt="The Silent Patient"
                             />
                             <div>
-                                <h1 className="text-5xl font-bold">The Silent Patient</h1>
+                                <h1 className="text-2xl md:text-5xl font-bold">The Silent Patient</h1>
                                 <p className="py-6">
                                     A psychological thriller that keeps you on edge until the very end. A must-read for thriller fans.
                                 </p>
@@ -64,11 +64,11 @@ const FeaturedBookSection = () => {
                         <div className="hero-content gap-12 flex-col lg:flex-row">
                             <img
                                 src="https://i.ibb.co/FLQSrgHL/book10.jpg"
-                                className="max-w-sm rounded-lg shadow-2xl"
+                                className="w-[120px] md:w-[200px] rounded-lg shadow-2xl"
                                 alt="Educated"
                             />
                             <div>
-                                <h1 className="text-5xl font-bold">Educated</h1>
+                                <h1 className="text-2xl md:text-5xl font-bold">Educated</h1>
                                 <p className="py-6">
                                     A memoir about a woman who grows up in a strict, survivalist family and eventually escapes to pursue education.
                                 </p>

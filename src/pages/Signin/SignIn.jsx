@@ -47,7 +47,7 @@ const SignIn = () => {
                 </div>
                 <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl p-5">
                     <div className="card-body">
-                        <h1 className="text-5xl font-bold">Login now!</h1>
+                        <h1 className="text-3xl md:text-5xl font-bold text-center">Login now!</h1>
                         <form onSubmit={handleSignIn}>
                             <fieldset className="fieldset">
                                 <label className="label">Email</label>
@@ -67,7 +67,7 @@ const SignIn = () => {
                                 <button className="btn btn-neutral mt-4">Login</button>
                             </fieldset>
                             <p className='flex justify-center'>Don't have any account
-                                <NavLink className='underline ml-2' to={'/register'}>Register</NavLink>
+                                <NavLink className='underline ml-1 md:ml-2' to={'/register'}>Register</NavLink>
                             </p>
                         </form>
                         <SocialSignIn from={from}></SocialSignIn>

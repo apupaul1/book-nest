@@ -11,6 +11,8 @@ import PrivateRoutes from "../routes/PrivateRoutes";
 import Loading from "../pages/Shared/Loading";
 import MyProfile from "../pages/MyProfile/MyProfile";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import Contact from "../pages/ExtraPage/Contact";
+import About from "../pages/ExtraPage/About";
 
 const router = createBrowserRouter([
     {
@@ -55,6 +57,14 @@ const router = createBrowserRouter([
                 path: 'myprofile',
                 hydrateFallbackElement: <Loading></Loading>,
                 element: <PrivateRoutes> <MyProfile></MyProfile> </PrivateRoutes>
+            },
+            {
+                path: 'contact',
+                Component: Contact
+            },
+            {
+                path: 'about',
+                Component: About
             }
         ]
     },

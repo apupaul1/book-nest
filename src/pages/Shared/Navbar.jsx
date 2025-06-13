@@ -91,10 +91,10 @@ const Navbar = () => {
                     </div>
                     <div className='flex items-center'>
                         <img
-                            className='w-[50px]'
+                            className='w-[40px] md:w-[50px]'
                             src="/logo.png"
                             alt="BookNest Logo" />
-                        <h2 className="text-xl font-bold text-slate-800">BookNest</h2>
+                        <h2 className="text-lg md:text-xl font-bold text-slate-900">BookNest</h2>
                     </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
@@ -106,7 +106,7 @@ const Navbar = () => {
                     {
                         user ? (
                             <div className='flex gap-5 items-center'>
-                                <div className="avatar avatar-online">
+                                <div className="avatar avatar-online hidden md:block">
                                     <div className="w-10 rounded-full">
                                         <img src={user.photoURL || 'https://i.ibb.co/ZYW3VTp/brown-brim.png'} />
                                     </div>
@@ -127,7 +127,7 @@ const Navbar = () => {
                                 </NavLink>
                                 <NavLink
                                     to="/signin"
-                                    className="btn btn-neutral flex items-center gap-1 font-bold rounded-md hover:bg-slate-900 transition text-xs lg:text-sm"
+                                    className="hidden btn btn-neutral md:flex items-center gap-1 font-bold rounded-md hover:bg-slate-900 transition text-xs lg:text-sm"
                                 >
                                     <LogIn size={16} /> Login
                                 </NavLink>

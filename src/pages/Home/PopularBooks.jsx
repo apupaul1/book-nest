@@ -30,7 +30,7 @@ const PopularBooks = () => {
 
     return (
         <div className="my-10 px-4 w-11/12 mx-auto">
-            <h2 className="text-4xl font-bold mb-10 text-center text-indigo-700">
+            <h2 className="text-2xl md:text-4xl font-bold mb-10 text-center text-indigo-700">
                 Popular Books
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
