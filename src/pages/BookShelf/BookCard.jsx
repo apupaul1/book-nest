@@ -7,13 +7,13 @@ const BookCard = ({ singleBook }) => {
     const { _id, book_title, cover_photo, book_author, book_category, upvote } = singleBook;
 
     return (
-        <div className="card card-side bg-slate-800 shadow-sm">
-            <figure className='w-1/2'>
+        <div className="card card-side bg-slate-800 shadow-sm flex flex-col md:flex-row">
+            <figure className='md:w-1/2'>
                 <img
                     src={cover_photo}
                     alt="Movie" />
             </figure>
-            <div className="card-body w-1/2">
+            <div className="card-body md:w-1/2">
                 <h2 className="card-title text-white">{book_title}</h2>
                 <p className='text-white'>Written By - {book_author}</p>
                 <button className=' badge badge-secondary'>{book_category}</button>

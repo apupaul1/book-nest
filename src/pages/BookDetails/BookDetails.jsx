@@ -195,9 +195,9 @@ const BookDetails = () => {
 
     return (
         <div className='w-11/12 mx-auto'>
-            <h2 className='text-center my-8 text-3xl font-extrabold'>📖 Book Details</h2>
+            <h2 className='text-center my-8 text-2xl md:text-3xl font-extrabold'>📖 Book Details</h2>
             <div className="card bg-white shadow-2xl lg:w-1/2 mx-auto mb-14 border border-gray-200 p-6 rounded-xl relative transition duration-300 hover:shadow-inner">
-                <div className='absolute left-8 top-5'>
+                <div className='absolute left-2 md:left-8 top-5'>
                     <button onClick={handleUpvote} className='text-amber-500 hover:scale-110 transition-transform duration-200'>
                         <FaRegHeart size={30} />
                     </button>
@@ -235,10 +235,11 @@ const BookDetails = () => {
                         )
                     }
 
-                    <div className="mt-6 border-t pt-3 flex justify-around items-center">
+                    <div className="mt-6 border-t pt-3 flex flex-col md:flex-row justify-around items-center">
                         <button onClick={handleUpvote} className="flex items-center gap-2 text-red-500 hover:text-red-700">
                             <FaRegHeart /> <span>Upvote ({upvoteCount})</span>
                         </button>
+                        
                         <button
                             type="button"
                             onClick={() => {

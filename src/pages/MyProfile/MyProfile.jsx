@@ -50,7 +50,7 @@ const MyProfile = () => {
                         "#3b82f6", // Blue
                         "#10b981", // Green
                         "#ef4444", // Red
-                        "#f59e0b", // Amber (Back to start)
+                        "#f59e0b", 
                     ]
                 }}
                 transition={{
@@ -59,20 +59,20 @@ const MyProfile = () => {
                     repeatType: "loop",
                     ease: "linear"
                 }}>
-                <div className="flex items-center space-x-6">
+                <div className="flex flex-col md:flex-row items-center space-x-6">
                     <img
                         src={user.photoURL || 'https://i.ibb.co/ZYW3VTp/brown-brim.png'}
                         alt="Profile"
-                        className="w-20 h-20 rounded-full object-cover border"
+                        className="w-20 h-20 mx-auto md:mx-12 rounded-full object-cover border"
                     />
-                    <div>
+                    <div className='text-center md:text-start'>
                         <h2 className="text-2xl font-bold text-gray-800">{user.displayName || "Anonymous User"}</h2>
                         <p className="text-gray-600">{user.email}</p>
                     </div>
                 </div>
 
                 {/* Summary Info */}
-                <div className="grid grid-cols-2 gap-4 text-center mb-12">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-center mb-12">
                     <div className="bg-blue-100 p-4 rounded-xl">
                         <p className="text-xl font-semibold text-blue-700">{totalBooks}</p>
                         <p className="text-sm text-gray-600">Total Books</p>

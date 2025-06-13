@@ -16,9 +16,9 @@ const Footer = () => {
 
             <nav>
                 <h6 className="footer-title">Company</h6>
-                <NavLink to={'/about'}><a className="link link-hover">About us</a></NavLink>
-                <NavLink to={'/contact'}><a className="link link-hover">Contact</a></NavLink>
-                <NavLink to={'/bookshelf'}><a className="link link-hover">Books</a></NavLink>
+                <NavLink to={'/about'}><button className="link link-hover">About us</button></NavLink>
+                <NavLink to={'/contact'}><button className="link link-hover">Contact</button></NavLink>
+                <NavLink to={'/bookshelf'}><button className="link link-hover">Books</button></NavLink>
             </nav>
             <nav>
                 <h6 className="footer-title">Legal</h6>
