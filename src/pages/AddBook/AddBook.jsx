@@ -130,7 +130,7 @@ const AddBook = () => {
                             type="number"
                             className="w-full p-3 bg-base-100 rounded-lg border-2 border-gray-300  focus:outline-none focus:border-amber-500"
                             placeholder="Enter total pages"
-                            name="total_pages"
+                            name="total_page"
                             required
                         />
                     </div>

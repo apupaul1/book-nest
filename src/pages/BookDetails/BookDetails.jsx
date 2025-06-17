@@ -86,7 +86,7 @@ const BookDetails = () => {
 
                     setReviews(prev => [...prev, data]);
                     form.reset();
-                    setShowReviewBox(false); 
+                    setShowReviewBox(false);
                 }
             })
             .catch(console.log);
@@ -231,15 +231,29 @@ const BookDetails = () => {
                                 }
                             </div>
                         ) : (
-                            <p className='text-center mt-3'>Status: {status}</p>
+                            <div>
+                                <p className='text-center mt-3'>Status: {status}</p>
+                            </div>
                         )
                     }
+
+                    <ul className="steps w-full mt-6">
+                        <li className={`step ${status === 'Want to Read' || status === 'Reading' || status === 'Read' ? 'step-primary' : ''}`}>
+                            Want to Read
+                        </li>
+                        <li className={`step ${status === 'Reading' || status === 'Read' ? 'step-primary' : ''}`}>
+                            Reading
+                        </li>
+                        <li className={`step ${status === 'Read' ? 'step-primary' : ''}`}>
+                            Read
+                        </li>
+                    </ul>
 
                     <div className="mt-6 border-t pt-3 flex flex-col md:flex-row justify-around items-center">
                         <button onClick={handleUpvote} className="flex items-center gap-2 text-red-500 hover:text-red-700">
                             <FaRegHeart /> <span>Upvote ({upvoteCount})</span>
                         </button>
-                        
+
                         <button
                             type="button"
                             onClick={() => {
