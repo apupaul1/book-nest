@@ -10,16 +10,16 @@ const FeaturedBookSection = () => {
             <div className="carousel w-full py-10">
                 {/* Carousel Item 1 */}
                 <div id="slide6" className="carousel-item relative w-full">
-                    <div className="hero bg-base-200 py-16 px-20 rounded-3xl">
-                        <div className="hero-content gap-12 flex-col lg:flex-row">
+                    <div className="hero bg-base-200 px-20 rounded-3xl">
+                        <div className="hero-content gap-12 flex-col md:flex-row">
                             <img
                                 src="https://i.ibb.co/93qQdwt4/download-3.jpg"
                                 className="w-[120px] md:w-[200px] md:max-w-sm rounded-lg shadow-2xl"
                                 alt="The Rage of Dragons"
                             />
                             <div>
-                                <h1 className="text-2xl md:text-5xl font-bold">The Rage of Dragons</h1>
-                                <p className="py-6">
+                                <h1 className="text-2xl md:text-4xl font-bold">The Rage of Dragons</h1>
+                                <p className="py-2">
                                     A high fantasy novel about revenge and dragons. A thrilling tale set in a world filled with action and intrigue.
                                 </p>
                                 <h2 className="py-2 text-xl flex text-amber-600"><FaStar /><FaStar /><FaStar /><FaStar /><FaStar /></h2>
@@ -36,16 +36,16 @@ const FeaturedBookSection = () => {
 
                 {/* Carousel Item 2 */}
                 <div id="slide7" className="carousel-item relative w-full">
-                    <div className="hero bg-base-200 py-16 px-20 rounded-3xl">
-                        <div className="hero-content gap-12 flex-col lg:flex-row">
+                    <div className="hero bg-base-200 px-20 rounded-3xl">
+                        <div className="hero-content gap-12 flex-col md:flex-row">
                             <img
                                 src="https://i.ibb.co/84LNP0qw/download-2.jpg"
                                 className="w-[120px] md:w-[200px]  rounded-lg shadow-2xl"
                                 alt="The Silent Patient"
                             />
                             <div>
-                                <h1 className="text-2xl md:text-5xl font-bold">The Silent Patient</h1>
-                                <p className="py-6">
+                                <h1 className="text-2xl md:text-4xl font-bold">The Silent Patient</h1>
+                                <p className="py-2">
                                     A psychological thriller that keeps you on edge until the very end. A must-read for thriller fans.
                                 </p>
                                 <h2 className="py-2 text-xl flex text-amber-600"><FaStar /><FaStar /><FaStar /><FaStar /><FaStar /></h2>
@@ -62,16 +62,16 @@ const FeaturedBookSection = () => {
 
                 {/* Carousel Item 3 */}
                 <div id="slide8" className="carousel-item relative w-full">
-                    <div className="hero bg-base-200 py-16 px-20 rounded-3xl">
-                        <div className="hero-content gap-12 flex-col lg:flex-row">
+                    <div className="hero bg-base-200 px-20 rounded-3xl">
+                        <div className="hero-content gap-12 flex-col md:flex-row">
                             <img
                                 src="https://i.ibb.co/FLQSrgHL/book10.jpg"
                                 className="w-[120px] md:w-[200px] rounded-lg shadow-2xl"
                                 alt="Educated"
                             />
                             <div>
-                                <h1 className="text-2xl md:text-5xl font-bold">Educated</h1>
-                                <p className="py-6">
+                                <h1 className="text-2xl md:text-4xl font-bold">Educated</h1>
+                                <p className="py-2">
                                     A memoir about a woman who grows up in a strict, survivalist family and eventually escapes to pursue education.
                                 </p>
                                 <h2 className="py-2 text-xl flex text-amber-600"><FaStar /><FaStar /><FaStar /><FaStar /><FaStar /></h2>

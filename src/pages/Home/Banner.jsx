@@ -17,7 +17,7 @@ const Banner = () => {
                             backgroundPosition: "center",
                             backgroundRepeat: "no-repeat",
                         }}
-                        className="hero h-[420px] lg:h-[540px]"
+                        className="hero h-[360px] lg:h-[540px]"
                     >
                         <div className='flex flex-col-reverse lg:flex-row items-center justify-between w-full px-4 sm:px-8 lg:px-16 gap-6 lg:gap-12'>
                             <div className='text-center lg:text-left lg:ml-6 max-w-xl'>
@@ -63,7 +63,7 @@ const Banner = () => {
                 {/* Slide 2 - Organize */}
                 <div id="slide2" className="carousel-item relative w-full">
                     <div
-                        className="hero h-[420px] lg:h-[540px]"
+                        className="hero h-[360px] lg:h-[540px]"
                         style={{
                             backgroundImage: "url(https://i.ibb.co/8nQfm5Dt/banner2.jpg)",
                             backgroundSize: "cover",
@@ -101,7 +101,7 @@ const Banner = () => {
                 {/* Slide 3 - Discover */}
                 <div id="slide3" className="carousel-item relative w-full">
                     <div
-                        className="hero h-[420px] lg:h-[540px]"
+                        className="hero h-[360px] lg:h-[540px]"
                         style={{
                             backgroundImage: "url(https://i.ibb.co/m5tvtGGP/library-with-round-window-bookcase-with-bookcase-left.jpg)",
                             backgroundSize: "cover",
