@@ -113,7 +113,7 @@ const Navbar = () => {
                                 </div>
                                 <button
                                     onClick={handleSignOut}
-                                    className='btn btn-neutral rounded-md hover:bg-slate-900 transition font-bold text-xs lg:text-sm'>
+                                    className='btn md:btn-md btn-sm btn-neutral rounded-md hover:bg-slate-900 transition font-bold text-xs lg:text-sm'>
                                     <LogOut size={16} /> Sign Out
                                 </button>
                             </div>
@@ -121,13 +121,13 @@ const Navbar = () => {
                             <div className="flex gap-2">
                                 <NavLink
                                     to="/register"
-                                    className="btn btn-neutral flex items-center gap-1 text-xs lg:text-sm font-bold rounded-md hover:bg-slate-900 transition"
+                                    className="md:btn-md btn-sm btn btn-neutral flex items-center gap-1 text-xs lg:text-sm font-bold rounded-md hover:bg-slate-900 transition"
                                 >
                                     <UserPlus size={16} /> Register
                                 </NavLink>
                                 <NavLink
                                     to="/signin"
-                                    className="hidden btn btn-neutral md:flex items-center gap-1 font-bold rounded-md hover:bg-slate-900 transition text-xs lg:text-sm"
+                                    className="hidden md:btn-md btn-sm btn btn-neutral md:flex items-center gap-1 font-bold rounded-md hover:bg-slate-900 transition text-xs lg:text-sm"
                                 >
                                     <LogIn size={16} /> Login
                                 </NavLink>

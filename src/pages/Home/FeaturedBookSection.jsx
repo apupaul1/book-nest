@@ -3,11 +3,13 @@ const FeaturedBookSection = () => {
 
 
     return (
-        <div className="w-10/12 mx-auto">
-            <h2 className="text-2xl md:text-3xl text-center mt-10 font-bold">Newly Added Books</h2>
+        <div className="max-w-7xl mx-auto">
+            <h2 className="text-2xl md:text-3xl font-extrabold text-center text-gray-800">
+                Newly Added Books
+            </h2>
             <div className="carousel w-full py-10">
                 {/* Carousel Item 1 */}
-                <div id="slide1" className="carousel-item relative w-full">
+                <div id="slide6" className="carousel-item relative w-full">
                     <div className="hero bg-base-200 py-16 px-20 rounded-3xl">
                         <div className="hero-content gap-12 flex-col lg:flex-row">
                             <img
@@ -27,13 +29,13 @@ const FeaturedBookSection = () => {
                         </div>
                     </div>
                     <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-                        <a href="#slide3" className="btn btn-circle">❮</a>
-                        <a href="#slide2" className="btn btn-circle">❯</a>
+                        <a href="#slide8" className="btn btn-circle">❮</a>
+                        <a href="#slide7" className="btn btn-circle">❯</a>
                     </div>
                 </div>
 
                 {/* Carousel Item 2 */}
-                <div id="slide2" className="carousel-item relative w-full">
+                <div id="slide7" className="carousel-item relative w-full">
                     <div className="hero bg-base-200 py-16 px-20 rounded-3xl">
                         <div className="hero-content gap-12 flex-col lg:flex-row">
                             <img
@@ -46,20 +48,20 @@ const FeaturedBookSection = () => {
                                 <p className="py-6">
                                     A psychological thriller that keeps you on edge until the very end. A must-read for thriller fans.
                                 </p>
-                                 <h2 className="py-2 text-xl flex text-amber-600"><FaStar /><FaStar /><FaStar /><FaStar /><FaStar /></h2>
+                                <h2 className="py-2 text-xl flex text-amber-600"><FaStar /><FaStar /><FaStar /><FaStar /><FaStar /></h2>
                                 <p className="py-2 text-sm">By Alex Michaelides</p>
                                 <button className="btn btn-primary">Get Started</button>
                             </div>
                         </div>
                     </div>
                     <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-                        <a href="#slide1" className="btn btn-circle">❮</a>
-                        <a href="#slide3" className="btn btn-circle">❯</a>
+                        <a href="#slide6" className="btn btn-circle">❮</a>
+                        <a href="#slide8" className="btn btn-circle">❯</a>
                     </div>
                 </div>
 
                 {/* Carousel Item 3 */}
-                <div id="slide3" className="carousel-item relative w-full">
+                <div id="slide8" className="carousel-item relative w-full">
                     <div className="hero bg-base-200 py-16 px-20 rounded-3xl">
                         <div className="hero-content gap-12 flex-col lg:flex-row">
                             <img
@@ -72,16 +74,16 @@ const FeaturedBookSection = () => {
                                 <p className="py-6">
                                     A memoir about a woman who grows up in a strict, survivalist family and eventually escapes to pursue education.
                                 </p>
-                                 <h2 className="py-2 text-xl flex text-amber-600"><FaStar /><FaStar /><FaStar /><FaStar /><FaStar /></h2>
+                                <h2 className="py-2 text-xl flex text-amber-600"><FaStar /><FaStar /><FaStar /><FaStar /><FaStar /></h2>
                                 <p className="py-2 text-sm">By Tara Westover</p>
-                                
+
                                 <button className="btn btn-primary">Get Started</button>
                             </div>
                         </div>
                     </div>
                     <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-                        <a href="#slide2" className="btn btn-circle">❮</a>
-                        <a href="#slide1" className="btn btn-circle">❯</a>
+                        <a href="#slide7" className="btn btn-circle">❮</a>
+                        <a href="#slide6" className="btn btn-circle">❯</a>
                     </div>
                 </div>
             </div>

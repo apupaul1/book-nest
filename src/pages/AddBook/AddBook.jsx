@@ -59,7 +59,8 @@ const AddBook = () => {
                     ease: "linear"
                 }}
             >
-                <h2 className="text-4xl font-semibold text-amber-500 mb-4 text-center">Add a New Book</h2>
+                <h2 className="text-2xl mb-6 md:text-3xl font-extrabold text-center text-gray-800">
+                    Add a New Book</h2>
                 <p className='text-center text-sm text-gray-600 mb-8'>Share your book collection with the community. Add a new book, track its reading status, and contribute to the collection.</p>
                 <form
                     onSubmit={handleAddBooks}
@@ -199,7 +200,7 @@ const AddBook = () => {
                     <div className="text-center pt-4">
                         <button
                             type="submit"
-                            className="w-full p-3 bg-amber-500 text-white rounded-lg hover:bg-amber-600 transition-all duration-300"
+                            className="btn w-full btn-neutral md:flex items-center gap-1 font-bold rounded-md hover:bg-slate-900 transition text-xs lg:text-sm"
                         >
                             Add Book
                         </button>

@@ -29,8 +29,8 @@ const PopularBooks = () => {
     }
 
     return (
-        <div className="my-10 px-4 w-11/12 mx-auto">
-            <h2 className="text-2xl md:text-4xl font-bold mb-10 text-center text-indigo-700">
+        <div className="my-10 px-4 max-w-7xl mx-auto">
+            <h2 className="text-2xl md:text-3xl font-extrabold mb-10 text-center text-gray-800">
                 Popular Books
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
@@ -53,7 +53,7 @@ const PopularBooks = () => {
                         <div className="w-1/2 px-4 py-6 flex flex-col justify-center items-center text-center space-y-3 font-semibold">
                             <h3 className="text-xl font-bold text-indigo-800">{book.book_title}</h3>
                             <p className="text-sm text-gray-500">By {book.book_author}</p>
-                            <p className="text-sm text-rose-600 bg-rose-100 px-3 py-1 rounded-full">
+                            <p className="text-sm text-rose-600 bg-rose-100 px-3 py-1 rounded-xl">
                                 ❤️ {book.upvote} Upvotes
                             </p>
                             {/* <div className="">

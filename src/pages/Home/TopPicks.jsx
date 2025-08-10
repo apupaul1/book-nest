@@ -24,10 +24,10 @@ const TopPicks = () => {
     ];
 
     return (
-        <div className='w-11/12 mx-auto my-12'>
+        <div className='max-w-7xl mx-auto my-12'>
             <section className="px-2">
-                <h2 className="text-2xl md:text-3xl font-extrabold text-center mb-8 text-slate-800">
-                    📚 Top Picks This Month
+                <h2 className="text-2xl md:text-3xl font-extrabold mb-10 text-center text-gray-800">
+                    Top Picks This Month
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     {books.map((book, idx) => (

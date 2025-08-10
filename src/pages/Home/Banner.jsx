@@ -36,7 +36,7 @@ const Banner = () => {
                                 </motion.button>
                             </div>
 
-                            <div className='hidden md:flex justify-center md:justify-end gap-4 md:gap-8 lg:gap-10 '>
+                            <div className='hidden lg:flex justify-center lg:justify-end gap-4 lg:gap-10 '>
                                 <motion.img
                                     animate={{ x: [0, 100, 0] }}
                                     transition={{ duration: 6, repeat: Infinity }}
