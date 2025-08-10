@@ -190,15 +190,12 @@ const BookDetails = () => {
     };
 
 
-
-
-
     return (
         <div className='w-11/12 mx-auto'>
-            <h2 className='text-center my-8 text-2xl md:text-3xl font-extrabold'>📖 Book Details</h2>
+            <h2 className='text-center my-8 text-2xl md:text-3xl font-extrabold'> Book Details</h2>
             <div className="card bg-white shadow-2xl lg:w-1/2 mx-auto mb-14 border border-gray-200 p-6 rounded-xl relative transition duration-300 hover:shadow-inner">
                 <div className='absolute left-2 md:left-8 top-5'>
-                    <button onClick={handleUpvote} className='text-amber-500 hover:scale-110 transition-transform duration-200'>
+                    <button onClick={handleUpvote} className='text-red-500 hover:scale-110 transition-transform duration-200'>
                         <FaRegHeart size={30} />
                     </button>
                 </div>
@@ -212,7 +209,7 @@ const BookDetails = () => {
                     </div>
 
                     <hr className='border-dashed border-gray-300 my-2' />
-                    <h2 className="text-center text-xl font-bold">📘 {book_title}</h2>
+                    <h2 className="text-center text-xl font-bold"> {book_title}</h2>
                     <p className='text-center text-gray-700'>Overview: {book_overview}</p>
                     <p className='text-center'>Category: <span className="badge badge-primary">{book_category}</span></p>
                     <p className='text-center'>Total Pages: {Number(total_page)}</p>
