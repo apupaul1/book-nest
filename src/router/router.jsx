@@ -13,6 +13,7 @@ import MyProfile from "../pages/MyProfile/MyProfile";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import Contact from "../pages/ExtraPage/Contact";
 import About from "../pages/ExtraPage/About";
+import UpcomingBooks from "../pages/UpcomingBooks/UpcomingBooks";
 
 const router = createBrowserRouter([
     {
@@ -34,6 +35,11 @@ const router = createBrowserRouter([
                 hydrateFallbackElement: <Loading></Loading>,
                 Component: BookDetails,
                 loader: ({ params }) => fetch(`https://b11-a11-c19-server.vercel.app/books/${params.id}`)
+            },
+            {
+                path: '/upcoming-release',
+                hydrateFallbackElement: <Loading></Loading>,
+                Component: UpcomingBooks,
             },
             {
                 path: 'register',
