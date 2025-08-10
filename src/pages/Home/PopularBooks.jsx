@@ -14,7 +14,7 @@ const PopularBooks = () => {
             .then(data => {
                 const sortedBooks = data
                     .sort((a, b) => (b.upvote || 0) - (a.upvote || 0))
-                    .slice(0, 6);
+                    .slice(0, 8);
                 setBooks(sortedBooks);
                 setLoading(false);
             })
@@ -33,7 +33,7 @@ const PopularBooks = () => {
             <h2 className="text-2xl md:text-4xl font-bold mb-10 text-center text-indigo-700">
                 Popular Books
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
                 {books.map(book => (
                     <motion.div
                         initial={{ backgroundColor: '#fffdf3' }}
