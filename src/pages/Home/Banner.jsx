@@ -12,7 +12,7 @@ const Banner = () => {
                 <div id="slide1" className="carousel-item relative w-full">
                     <div
                         style={{
-                            backgroundImage: "url('https://i.ibb.co/hQqXHPJ/abstract-blur-beautiful-luxury-shopping-mall-center.jpg')",
+                            backgroundImage: "url('https://i.ibb.co.com/RT9DkgjV/abundant-collection-antique-books-wooden-shelves-generated-by-ai.jpg')",
                             backgroundSize: "cover",
                             backgroundPosition: "center",
                             backgroundRepeat: "no-repeat",
@@ -21,10 +21,10 @@ const Banner = () => {
                     >
                         <div className='flex flex-col-reverse lg:flex-row items-center justify-between w-full px-4 sm:px-8 lg:px-16 gap-6 lg:gap-12'>
                             <div className='text-center lg:text-left lg:ml-6 max-w-xl'>
-                                <h1 className="mb-4 text-2xl sm:text-3xl lg:text-5xl font-bold text-neutral drop-shadow-lg">
+                                <h1 className="mb-4 text-2xl sm:text-3xl lg:text-5xl font-bold text-white drop-shadow-lg">
                                     Welcome to BookNest
                                 </h1>
-                                <p className="mb-4 text-sm sm:text-base text-neutral drop-shadow">
+                                <p className="mb-4 text-sm sm:text-base text-white  drop-shadow">
                                     Your personal digital bookshelf — organize, track, and explore your reading journey effortlessly.
                                 </p>
                                 <motion.button
